@@ -1,0 +1,14 @@
+{
+    "transactions": [
+        {
+            "TransactionDate": "2025-10-27",
+            "Description": "Real Time Payment From Amazon.com 10/25 20251025021000021p1brjpc03960008368",
+            "AmountUSD": 4685.33
+        },
+        {
+            "TransactionDate": "2025-10-27",
+            "Description": "Electronic Deposit 10/27 Afterpay 1217",
+            "AmountUSD": 2258.80
+        }
+    ]
+}

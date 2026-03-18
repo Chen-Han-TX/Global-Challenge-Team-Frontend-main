@@ -1,0 +1,34 @@
+{
+    "enriched_transactions": [
+        {
+            "TransactionDate": "2025-10-27",
+            "Description": "real time payment from amazon.com 10/25 20251025021000021p1brjpc03960008368",
+            "Category": "Unknown",
+            "AmountUSD": 4685.33,
+            "Balance": null,
+            "TransactionClassification": "Merchant Payment",
+            "MerchantClassification": "Amazon",
+            "NormalizedEntity": "Amazon",
+            "TransactionName": "real time payment from amazon.com 10/25 20251025021000021p1brjpc03960008368",
+            "IsCreditCardExpense": false,
+            "Reason": "Match found for specific merchant: Amazon",
+            "Confidence": 0.9,
+            "RuleHit": "RULE_MERCHANT_LOOKUP"
+        },
+        {
+            "TransactionDate": "2025-10-27",
+            "Description": "electronic deposit 10/27 afterpay 1217",
+            "Category": "Unknown",
+            "AmountUSD": 2258.8,
+            "Balance": null,
+            "TransactionClassification": "Payment Rail Transaction",
+            "MerchantClassification": "Payment Processor",
+            "NormalizedEntity": "Payment Processor",
+            "TransactionName": "electronic deposit 10/27 afterpay 1217",
+            "IsCreditCardExpense": false,
+            "Reason": "Payment rail keyword detected.",
+            "Confidence": 0.8,
+            "RuleHit": "RULE_PAYMENT_RAIL"
+        }
+    ]
+}
