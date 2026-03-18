@@ -1,11 +1,15 @@
 import axios from "axios";
 import type { RawTransaction, EnrichedTransaction, TransactionInput, TransactionOutput, ForecastOutput } from "../types/transaction";
 
+/* 
 const API_BASE_URL = "http://localhost:5000/api"; // Adjust based on the backend
 
-/** Set to true to use your local backend for document upload (localhost:8000). */
+// Set to true to use your local backend for document upload (localhost:8000). 
 const USE_LOCAL_BACKEND_FOR_DOCUMENT = true;
 const LOCAL_BACKEND_URL = "http://localhost:8000";
+*/
+
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:8000";
 
 export const transactionService = {
   // Fetch raw transactions
@@ -111,6 +115,7 @@ export const transactionService = {
     }
   },
 
+  /*
   async postDocument(
     file: File
   ): Promise<any> {
@@ -127,22 +132,40 @@ export const transactionService = {
         );
         return response.data;
       }
-
-      const requestPath = 'https://document-processing-api.onrender.com/api/v1/pipeline/orchestrator'
-      const response = await axios.post(
-        requestPath,
-        file,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      )
-      return response.data
-    } catch (error) {
-      console.error("Error uploading document:", error);
-      return [];
+        const requestPath = 'https://document-processing-api.onrender.com/api/v1/pipeline/orchestrator'
+        const response = await axios.post(
+          requestPath,
+          file,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        )
+        return response.data
+      } catch (error) {
+        console.error("Error uploading document:", error);
+        return [];
+      }
     }
-  }
+        */
+
+      async postDocument(file: File): Promise<any> {
+        try {
+          const formData = new FormData();
+          formData.append("file", file);
+          const response = await axios.post(
+            `${BACKEND_URL}/document/upload-file-for-analysis`,
+            formData,
+            {
+              headers: { "Content-Type": "multipart/form-data" },
+            }
+          );
+          return response.data;
+        } catch (error) {
+          console.error("Error uploading document:", error);
+          return [];
+        }
+      }
 };
 
