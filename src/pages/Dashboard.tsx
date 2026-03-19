@@ -321,7 +321,9 @@ const Dashboard: React.FC = () => {
         {/* Charts */}
         <Charts stats={dashboardData.stats} />
 
-        {/* NEW: Forecast chart section */}
+        {/* NEW: Forecast chart section 
+        
+        
         <section className="mt-6">
           <h3 className="text-lg font-medium text-gray-900 mb-3">30-day Balance Forecast</h3>
           <div className="bg-white rounded-lg p-4 shadow-sm">
@@ -334,6 +336,24 @@ const Dashboard: React.FC = () => {
             />
           </div>
         </section>
+        
+        */}
+
+        {/* Only show forecast after file upload */}
+        {hasUploadedFile && (
+          <section className="mt-6">
+            <h3 className="text-lg font-medium text-gray-900 mb-3">30-day Balance Forecast</h3>
+            <div className="bg-white rounded-lg p-4 shadow-sm">
+              <PlotlyChart
+                chartId="forecast-plot"
+                isDarkMode={false}
+                data={forecastChartData}
+                height="320px"
+                hoverTemplate="<b>Balance:</b> $%{y:.2f}<br>%{x|%b %d, %Y}<extra></extra>"
+              />
+            </div>
+          </section>
+        )}
 
         {/* Footer */}
         <footer className="mt-8 pt-6 border-t border-gray-200 text-center text-gray-500 text-sm">
